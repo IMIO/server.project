@@ -13,6 +13,7 @@ We install the necessary libraries
 > apt-get install zlib1g-dev (support zlib)
 > apt-get install libjpeg62-dev
 > apt-get install subversion
+> apt-get install git
 > apt-get install libpq-dev
 > apt-get install libxml2-dev
 > apt-get install libxslt1-dev
@@ -61,7 +62,7 @@ It's necessary to replace the line "virtualenv-2.7 --no-site-packages ." by
     "/srv/python273/bin/virtualenv --no-site-packages ."
 OR
 You can create a link to our virtualenv without modifying Makefile
-    "ln -s /srv/python273/bin/virtualenv /usr/local/bin/virtualenv-2.7"
+    "sudo ln -s /srv/python273/bin/virtualenv /usr/local/bin/virtualenv-2.7"
 
 we initialize the buildout
 > make bootstrap

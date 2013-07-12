@@ -14,6 +14,7 @@ On installe des librairies nécessaires
 > apt-get install zlib1g-dev (support zlib)
 > apt-get install libjpeg62-dev
 > apt-get install subversion
+> apt-get install git
 > apt-get install libpq-dev
 > apt-get install libxml2-dev
 > apt-get install libxslt1-dev
@@ -62,7 +63,7 @@ Il faut remplacer la ligne "virtualenv-2.7 --no-site-packages ." par
     "/srv/python273/bin/virtualenv --no-site-packages ."
 OU
 On peut créer un lien symbolique vers notre virtualenv sans modifier alors le fichier Makefile
-    "ln -s /srv/python273/bin/virtualenv /usr/local/bin/virtualenv-2.7"
+    "sudo ln -s /srv/python273/bin/virtualenv /usr/local/bin/virtualenv-2.7"
 
 On initialise le buildout
 > make bootstrap
@@ -92,7 +93,7 @@ Tout ce qui va être ajouté dans le dossier "xxx" sera maintenant localisé dan
 
 2) Utilisation en production (plusieurs instances Zope pour la même database, ZEO)
 
-Il faut remplacer dans le fichier buildout.cfg l'appel à dev.cfg par prod.cf. 
+Il faut remplacer dans le fichier buildout.cfg l'appel à dev.cfg par prod.cfg. 
 
 On exécute le buildout après chaque modification du fichier buildout.cfg
 > make buildout
