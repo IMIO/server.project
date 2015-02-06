@@ -1,0 +1,14 @@
+Changelog
+=========
+
+0.3-2 (unreleased)
+------------------
+
+- Used imio.helpers to test development_environment.
+  [sgeulette]
+- Cleaned buildout to use more eggs
+  [sgeulette]
+- Used PasswordStrength last version
+  [sgeulette]
+
+
