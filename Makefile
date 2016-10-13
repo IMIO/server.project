@@ -22,6 +22,11 @@ run:
 	if ! test -f bin/instance1;then make buildout;fi
 	bin/instance1 fg
 
+.PHONY: coverage
+coverage:
+	bin/coveragepst
+	bin/report
+
 .PHONY: cleanall
 cleanall:
 	rm -fr develop-eggs downloads eggs parts .installed.cfg lib include bin
