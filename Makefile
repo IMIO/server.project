@@ -27,6 +27,15 @@ coverage:
 	bin/coveragepst
 	bin/report
 
+.PHONY: robot-server
+robot-server:
+	bin/robot-server -v imio.project.pst.testing.PST_ROBOT_TESTING
+
+.PHONY: doc
+doc:
+	# can be run by example with: make doc opt='-t "Test1 *"'
+	bin/robot $(opt) src/imio.project.pst/src/imio/project/pst/tests/robot/doc.robot
+
 .PHONY: cleanall
 cleanall:
 	rm -fr develop-eggs downloads eggs parts .installed.cfg lib include bin
