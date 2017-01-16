@@ -5,6 +5,8 @@ all: run
 .PHONY: bootstrap
 bootstrap:
 	virtualenv-2.7 .
+	bin/easy_install setuptools==11.1
+	bin/easy_install setuptools==30.2.0
 	./bin/python bootstrap.py
 
 .PHONY: buildout
