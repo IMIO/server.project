@@ -44,4 +44,4 @@ cleanall:
 
 .PHONY: templates_update
 templates_update:
-	if ! test -f bin/instance-debug;then bin/instance-debug run templates.py; else bin/instance1 run templates.py;fi
+	if test -f bin/instance-debug;then bin/instance-debug run templates.py; else bin/instance1 run templates.py;fi
