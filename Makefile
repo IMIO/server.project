@@ -39,3 +39,7 @@ doc:
 .PHONY: cleanall
 cleanall:
 	rm -fr develop-eggs downloads eggs parts .installed.cfg lib include bin
+
+.PHONY: templates_update
+templates_update:
+	if ! test -f bin/instance-debug;then bin/instance-debug run templates.py; else bin/instance1 run templates.py;fi
