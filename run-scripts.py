@@ -19,8 +19,12 @@ def script1():
     step = sys.argv[5]
     if not profile.startswith('profile-'):
         profile = 'profile-%s' % profile
-    verbose('Running "%s#%s" step on %s' % (profile, step, obj.absolute_url_path()))
-    ret = obj.portal_setup.runImportStepFromProfile(profile, step)
+    if step == '_all_':
+        verbose('Running all "%s" steps on %s' % (profile, obj.absolute_url_path()))
+        ret = obj.portal_setup.runAllImportStepsFromProfile(profile)
+    else:
+        verbose('Running "%s#%s" step on %s' % (profile, step, obj.absolute_url_path()))
+        ret = obj.portal_setup.runImportStepFromProfile(profile, step)
     if 'messages' in ret:
         for step in ret['messages']:
             verbose("%s:\n%s" % (step, ret['messages'][step]))
@@ -37,8 +41,12 @@ def script2():
     from imio.migrator.migrator import Migrator
     # obj is plone site
     mig = Migrator(obj)
-    mig.upgradeProfile(profile)
-    verbose('Running "%s" upgrade on %s' % (profile, obj.absolute_url_path()))
+    if profile == '_all_':
+        verbose('Running all upgrades on %s' % (obj.absolute_url_path()))
+        mig.upgradeAll(omit=['imio.dms.mail:default'])
+    else:
+        verbose('Running "%s" upgrade on %s' % (profile, obj.absolute_url_path()))
+        mig.upgradeProfile(profile)
     transaction.commit()
 
 info = ["You can pass following parameters (with the first one always script number):", "1: run profile step",
