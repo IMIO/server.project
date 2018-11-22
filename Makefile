@@ -67,21 +67,7 @@ doc:
 cleanall:
 	rm -fr develop-eggs downloads eggs parts .installed.cfg lib include bin
 
-.PHONY: step-script
-step-script:
-# create templates: step=imiodmsmail-create-templates
-# update templates: step=imiodmsmail-update-templates
-# override templates: step=imiodmsmail-override-templates
-# all steps: profile=collective.iconifieddocumentactions:default step=_all_
+.PHONY: various-script
+various-script:
 	@echo "plone: $(plone)"
-	@echo "profile: $(profile)"
-	@echo "step: $(step)"
-	bin/$(instance) -O$(plone) run run-scripts.py 1 $(profile) $(step)
-
-.PHONY: migrate-script
-migrate-script:
-# profile=collective.documentgenerator:default
-# all profiles: profile=_all_
-	@echo "plone: $(plone)"
-	@echo "profile: $(profile)"
-	bin/$(instance) -O$(plone) run run-scripts.py 2 $(profile)
+	bin/$(instance) -O$(plone) run run-scripts.py 1
