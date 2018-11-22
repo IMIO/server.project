@@ -18,6 +18,12 @@ bootstrap:
 	bin/easy_install setuptools==30.2.0
 	./bin/python bootstrap.py
 
+.PHONY: setup
+setup:
+	virtualenv-2.7 .
+	./bin/pip install --upgrade pip
+	./bin/pip install -r requirements.txt
+
 .PHONY: buildout
 buildout:
 	if ! test -f bin/buildout;then make bootstrap;fi
