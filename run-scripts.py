@@ -12,7 +12,14 @@ if len(sys.argv) < 3 or sys.argv[2] != 'run-scripts.py':
 
 
 def script1():
-    verbose(' on %s' % obj.absolute_url_path())
+    verbose('Pst marker on %s' % obj.absolute_url_path())
+    from imio.project.pst.interfaces import IImioPSTProject
+    from zope.interface import alsoProvides
+    catalog = obj.portal_catalog
+    for brain in catalog(portal_type='projectspace'):
+        ps = brain.getObject()
+        alsoProvides(ps, IImioPSTProject)
+        ps.reindexObject()
     transaction.commit()
 
 
