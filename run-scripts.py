@@ -24,11 +24,22 @@ def script1():
         alsoProvides(ps, IImioPSTProject)
         if not ps.budget_years:
             ps.budget_years = [2013, 2014, 2015, 2016, 2017, 2018]
+        ps.manage_addLocalRoles("pst_editors", ('Reader', 'Editor', 'Reviewer', 'Contributor', ))
         ps.reindexObject()
+        ps.reindexObjectSecurity()
     # add archive action
     obj.portal_setup.runImportStepFromProfile('imio.project.pst:default', 'actions', run_dependencies=False)
-    transaction.commit()
+    # update dexterity type local roles
+    from plone.dexterity.interfaces import IDexterityFTI
+    from zope.component import getUtility
+    fti = getUtility(IDexterityFTI, name='projectspace')
+    lr = getattr(fti, 'localroles')
+    lrsc = lr['static_config']
+    if 'internally_published' in lrsc and 'pst_editors' in lrsc['internally_published']:
+        del(lrsc['internally_published']['pst_editors'])
+        lr._p_changed = True
 
+    transaction.commit()
 
 info = ["You can pass following parameters (with the first one always script number):", "1: various"]
 
