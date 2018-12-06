@@ -16,10 +16,15 @@ def script1():
     from imio.project.pst.interfaces import IImioPSTProject
     from zope.interface import alsoProvides
     catalog = obj.portal_catalog
+    # set marker interface
     for brain in catalog(portal_type='projectspace'):
         ps = brain.getObject()
         alsoProvides(ps, IImioPSTProject)
         ps.reindexObject()
+    # consider modified schema for projectspace
+    obj.portal_setup.runImportStepFromProfile('imio.project.core:default', 'typeinfo', run_dependencies=False)
+    # add archive action
+    obj.portal_setup.runImportStepFromProfile('imio.project.pst:default', 'actions', run_dependencies=False)
     transaction.commit()
 
 
