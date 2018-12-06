@@ -12,11 +12,12 @@ if len(sys.argv) < 3 or sys.argv[2] != 'run-scripts.py':
 
 
 def script1():
-    verbose('Pst marker on %s' % obj.absolute_url_path())
+    verbose('Pst archive migrations on %s' % obj.absolute_url_path())
     from imio.project.pst.interfaces import IImioPSTProject
     from zope.interface import alsoProvides
     # consider modified schema for projectspace
     obj.portal_setup.runImportStepFromProfile('imio.project.core:default', 'typeinfo', run_dependencies=False)
+    verbose('Typeinfo updated')
     # set marker interface
     catalog = obj.portal_catalog
     for brain in catalog(portal_type='projectspace'):
@@ -27,8 +28,10 @@ def script1():
         ps.manage_addLocalRoles("pst_editors", ('Reader', 'Editor', 'Reviewer', 'Contributor', ))
         ps.reindexObject()
         ps.reindexObjectSecurity()
+    verbose('Pstproject: marker added, years added, localroles added')
     # add archive action
     obj.portal_setup.runImportStepFromProfile('imio.project.pst:default', 'actions', run_dependencies=False)
+    verbose('Actions updated')
     # update dexterity type local roles
     from plone.dexterity.interfaces import IDexterityFTI
     from zope.component import getUtility
@@ -38,7 +41,7 @@ def script1():
     if 'internally_published' in lrsc and 'pst_editors' in lrsc['internally_published']:
         del(lrsc['internally_published']['pst_editors'])
         lr._p_changed = True
-
+    verbose('Dexterity local roles removed')
     transaction.commit()
 
 info = ["You can pass following parameters (with the first one always script number):", "1: various"]
