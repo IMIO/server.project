@@ -15,14 +15,16 @@ def script1():
     verbose('Pst marker on %s' % obj.absolute_url_path())
     from imio.project.pst.interfaces import IImioPSTProject
     from zope.interface import alsoProvides
-    catalog = obj.portal_catalog
+    # consider modified schema for projectspace
+    obj.portal_setup.runImportStepFromProfile('imio.project.core:default', 'typeinfo', run_dependencies=False)
     # set marker interface
+    catalog = obj.portal_catalog
     for brain in catalog(portal_type='projectspace'):
         ps = brain.getObject()
         alsoProvides(ps, IImioPSTProject)
+        if not ps.budget_years:
+            ps.budget_years = [2013, 2014, 2015, 2016, 2017, 2018]
         ps.reindexObject()
-    # consider modified schema for projectspace
-    obj.portal_setup.runImportStepFromProfile('imio.project.core:default', 'typeinfo', run_dependencies=False)
     # add archive action
     obj.portal_setup.runImportStepFromProfile('imio.project.pst:default', 'actions', run_dependencies=False)
     transaction.commit()
