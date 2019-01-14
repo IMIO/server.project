@@ -1,0 +1,13 @@
+1) Installer le module "Webservices Client for PloneMeeting"
+2) configurer http://localhost:8081/ws/@@ws4pmclient-settings
+ * http://localhost:8082/pm/ws4pm.wsdl
+ * dgen
+ * meeting
+ * title = context/Title
+ * description = context/Description
+
+3) portal_actions, ajout dans catagorie object
+ * id = tocollege
+ * url = string:${object_url}/@@send_to_plonemeeting_form?meetingConfigId=meeting-config-college
+ * condition = python: context.getPortalTypeName() == 'pstaction'
+ * permission = Modify portal content
