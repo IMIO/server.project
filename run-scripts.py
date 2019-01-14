@@ -24,6 +24,7 @@ def script1():
         xmlpath = add_path('faceted_conf/operationalobjective.xml')
         folder.unrestrictedTraverse('@@faceted_exportimport').import_xml(import_file=open(xmlpath))
         _updateDefaultCollectionFor(folder, folder['all'].UID())
+    obj.portal_setup.runImportStepFromProfile('imio.project.core:default', 'viewlets', run_dependencies=False)
     transaction.commit()
 
 
