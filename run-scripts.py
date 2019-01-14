@@ -12,13 +12,18 @@ if len(sys.argv) < 3 or sys.argv[2] != 'run-scripts.py':
 
 
 def script1():
-    verbose('Pst migration on %s' % obj.absolute_url_path())
+    verbose('Pst dashboards migration on %s' % obj.absolute_url_path())
     catalog = obj.portal_catalog
+    from collective.eeafaceted.collectionwidget.utils import _updateDefaultCollectionFor
+    from imio.project.pst import add_path
     for brain in catalog(portal_type='projectspace'):
         ps = brain.getObject()
-        ps.manage_addLocalRoles("pst_editors", ('Reader', 'Editor', 'Reviewer', 'Contributor', ))
-        ps.reindexObject()
-        ps.reindexObjectSecurity()
+        if 'operationalobjectives' not in ps:
+            continue
+        folder = ps['operationalobjectives']
+        xmlpath = add_path('faceted_conf/operationalobjective.xml')
+        folder.unrestrictedTraverse('@@faceted_exportimport').import_xml(import_file=open(xmlpath))
+        _updateDefaultCollectionFor(folder, folder['all'].UID())
     transaction.commit()
 
 
@@ -66,3 +71,13 @@ def script1_1():
         del(lrsc['internally_published']['pst_editors'])
         lr._p_changed = True
     verbose('Dexterity local roles removed')
+
+
+def script1_2():
+    verbose('Pst migration on %s' % obj.absolute_url_path())
+    catalog = obj.portal_catalog
+    for brain in catalog(portal_type='projectspace'):
+        ps = brain.getObject()
+        ps.manage_addLocalRoles("pst_editors", ('Reader', 'Editor', 'Reviewer', 'Contributor', ))
+        ps.reindexObject()
+        ps.reindexObjectSecurity()
