@@ -6,6 +6,9 @@
  * title = context/Title
  * description = context/Description
  * admin = dgen
+ * Condition au format TAL = python: context.getPortalTypeName() == 'pstaction'
+ * Permissions = Modify portal content
+ * Identifiant de configuration de séance dans PloneMeeting = Collège Communal
 
 3) portal_actions, ajout dans catégorie object
  * id = tocollege
