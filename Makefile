@@ -24,7 +24,7 @@ setup:
 
 .PHONY: buildout
 buildout:
-	if ! test -f bin/buildout;then make bootstrap;fi
+	if ! test -f bin/buildout;then make setup;fi
 	if ! test -f var/filestorage/Data.fs;then make standard-config; else bin/buildout -v;fi
 
 .PHONY: upgrade
@@ -41,7 +41,7 @@ upgrade:
 
 .PHONY: standard-config
 standard-config:
-	if ! test -f bin/buildout;then make bootstrap;fi
+	if ! test -f bin/buildout;then make setup;fi
 	bin/buildout -vt 5 -c standard-config.cfg
 
 .PHONY: run
