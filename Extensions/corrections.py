@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+from imio.project.core.utils import getProjectSpace
+from plone import api
+from Products.CPUtils.Extensions.utils import check_zope_admin
+
 
 def correct_registry(self, dochange=''):
     """
@@ -36,6 +41,33 @@ def correct_registry(self, dochange=''):
 """
 {'_value': [{'fct_title': u"Gestionnaire d'action", 'fct_id': u'actioneditor'}], '__name__': 'collective.contact.plonegroup.browser.settings.IContactPlonegroupConfig.functions', '_field': <plone.registry.field.List object at 0x7fc88c20a320>, '__parent__': <Registry at portal_registry>, '__provides__': <zope.interface.Provides object at 0x7fc88c208350>}
 """
+
+
+def update_reference_number(self, ptypes='strategicobjective|operationalobjective|pstaction', doit=''):
+    """
+        Correct reference numbers
+    """
+    if not check_zope_admin():
+        return "You must be a zope manager to run this script"
+    out = []
+    # search regarding context
+    types = ptypes.split('|')
+    ps = getProjectSpace(self)
+    out.append("Working on projectspace {}".format(ps))
+    out.append('Searching on context {} for types {}'.format(self, types))
+    brains = api.content.find(context=self, portal_type=types, sort_on='path')
+    nref = ps.last_reference_number
+    for brain in brains:
+        nref += 1
+        obj = brain.getObject()
+        out.append("Changing ref from '{}' to {} on '{}'".format(obj.reference_number, nref, brain.getPath()))
+        if doit == '1':
+            obj.reference_number = nref
+            obj.reindexObject()
+
+    if doit == '1':
+        ps.last_reference_number = nref
+    return '\n'.join(out)
 
 
 def various(self):
