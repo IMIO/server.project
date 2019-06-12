@@ -38,9 +38,6 @@ def correct_registry(self, dochange=''):
                 out.append("Record '%s' corrected" % FUNCTIONS_REGISTRY)
 
     return '\n'.join(out)
-"""
-{'_value': [{'fct_title': u"Gestionnaire d'action", 'fct_id': u'actioneditor'}], '__name__': 'collective.contact.plonegroup.browser.settings.IContactPlonegroupConfig.functions', '_field': <plone.registry.field.List object at 0x7fc88c20a320>, '__parent__': <Registry at portal_registry>, '__provides__': <zope.interface.Provides object at 0x7fc88c208350>}
-"""
 
 
 def update_reference_number(self, ptypes='strategicobjective|operationalobjective|pstaction', doit=''):
