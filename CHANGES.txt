@@ -4,8 +4,10 @@ Changelog
 1.1-2 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Downgraded transaction.
+  [sgeulette]
+- Integrated imio.pm.wsclient
+  [sgeulette]
 
 1.1-1 (2019-01-15)
 ------------------
