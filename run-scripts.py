@@ -25,6 +25,7 @@ def script1():
         pt = ('pstaction', 'operationalobjective', 'strategicobjective')
         for brain in catalog(portal_type=pt, path=path, sort_on='path'):
             onModifyProject(brain.getObject(), None)
+        ret = ps.restrictedTraverse('clean_budget/display')()
         verbose("After : {}".format(ret.split('<br />\n')[0]))
     transaction.commit()
 
