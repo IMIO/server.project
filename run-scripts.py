@@ -26,7 +26,7 @@ def script1():
         for brain in catalog(portal_type=pt, path=path, sort_on='path'):
             onModifyProject(brain.getObject(), None)
         verbose("After : {}".format(ret.split('<br />\n')[0]))
-#    transaction.commit()
+    transaction.commit()
 
 
 info = ["You can pass following parameters (with the first one always script number):", "1: various"]
