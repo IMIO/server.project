@@ -20,7 +20,7 @@ def script1():
         verbose(ps.absolute_url())
         ret = ps.restrictedTraverse('clean_budget/display')()
         verbose("Before: {}".format(ret.split('<br />\n')[0]))
-        ps.restrictedTraverse('clean_budget/delete')()
+        ps.restrictedTraverse('clean_budget/delete')(empty_budget=False)
         path = brain.getPath()
         pt = ('pstaction', 'operationalobjective', 'strategicobjective')
         for brain in catalog(portal_type=pt, path=path, sort_on='path'):
