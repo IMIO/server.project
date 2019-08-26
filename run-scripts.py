@@ -12,20 +12,21 @@ if len(sys.argv) < 3 or sys.argv[2] != 'run-scripts.py':
 
 
 def script1():
-    verbose('Pst dashboards migration on %s' % obj.absolute_url_path())
+    verbose('Pst budget correction on %s' % obj.absolute_url_path())
     catalog = obj.portal_catalog
-    from collective.eeafaceted.collectionwidget.utils import _updateDefaultCollectionFor
-    from imio.project.pst import add_path
+    from imio.project.core.events import onModifyProject
     for brain in catalog(portal_type='projectspace'):
         ps = brain.getObject()
-        if 'operationalobjectives' not in ps:
-            continue
-        folder = ps['operationalobjectives']
-        xmlpath = add_path('faceted_conf/operationalobjective.xml')
-        folder.unrestrictedTraverse('@@faceted_exportimport').import_xml(import_file=open(xmlpath))
-        _updateDefaultCollectionFor(folder, folder['all'].UID())
-    obj.portal_setup.runImportStepFromProfile('imio.project.core:default', 'viewlets', run_dependencies=False)
-    transaction.commit()
+        verbose(ps.absolute_url())
+        ret = ps.restrictedTraverse('clean_budget/display')()
+        verbose("Before: {}".format(ret.split('<br />\n')[0]))
+        ps.restrictedTraverse('clean_budget/delete')()
+        path = brain.getPath()
+        pt = ('pstaction', 'operationalobjective', 'strategicobjective')
+        for brain in catalog(portal_type=pt, path=path, sort_on='path'):
+            onModifyProject(brain.getObject(), None)
+        verbose("After : {}".format(ret.split('<br />\n')[0]))
+#    transaction.commit()
 
 
 info = ["You can pass following parameters (with the first one always script number):", "1: various"]
@@ -82,3 +83,20 @@ def script1_2():
         ps.manage_addLocalRoles("pst_editors", ('Reader', 'Editor', 'Reviewer', 'Contributor', ))
         ps.reindexObject()
         ps.reindexObjectSecurity()
+
+
+def script1_3():
+    verbose('Pst dashboards migration on %s' % obj.absolute_url_path())
+    catalog = obj.portal_catalog
+    from collective.eeafaceted.collectionwidget.utils import _updateDefaultCollectionFor
+    from imio.project.pst import add_path
+    for brain in catalog(portal_type='projectspace'):
+        ps = brain.getObject()
+        if 'operationalobjectives' not in ps:
+            continue
+        folder = ps['operationalobjectives']
+        xmlpath = add_path('faceted_conf/operationalobjective.xml')
+        folder.unrestrictedTraverse('@@faceted_exportimport').import_xml(import_file=open(xmlpath))
+        _updateDefaultCollectionFor(folder, folder['all'].UID())
+    obj.portal_setup.runImportStepFromProfile('imio.project.core:default', 'viewlets', run_dependencies=False)
+    transaction.commit()
