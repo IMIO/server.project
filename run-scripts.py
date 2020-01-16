@@ -11,6 +11,15 @@ if len(sys.argv) < 3 or sys.argv[2] != 'run-scripts.py':
     sys.exit(0)
 
 
+def script2():
+    verbose('Updating ports on %s' % obj.absolute_url_path())
+    from collective.documentgenerator.utils import update_oo_config
+    #from imio.dms.mail.utils import update_solr_config
+    #update_solr_config()
+    update_oo_config()
+    transaction.commit()
+
+
 def script1():
     verbose('Pst budget correction on %s' % obj.absolute_url_path())
     catalog = obj.portal_catalog
@@ -32,7 +41,7 @@ def script1():
 
 info = ["You can pass following parameters (with the first one always script number):", "1: various"]
 
-scripts = {'1': script1}
+scripts = {'1': script1, '2': script2}
 
 if len(sys.argv) < 4 or sys.argv[3] not in scripts:
     error("Bad script parameter")
@@ -41,6 +50,8 @@ if len(sys.argv) < 4 or sys.argv[3] not in scripts:
 
 with api.env.adopt_user(username='admin'):
     scripts[sys.argv[3]]()
+
+### OLD scripts ###
 
 
 def script1_1():
