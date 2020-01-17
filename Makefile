@@ -63,13 +63,13 @@ coverage:
 
 .PHONY: robot-server
 robot-server:
-	bin/robot-server -v imio.project.pst.testing.PST_ROBOT_TESTING
+	env ZSERVER_HOST=localhost ZSERVER_PORT=55001 bin/robot-server -v imio.project.pst.testing.PST_ROBOT_TESTING
 
 .PHONY: doc
 doc:
 	# can be run by example with: make doc opt='-t "Test1 *"'
 	# env ZSERVER_PORT=55001 ??  https://github.com/plone/plone.app.robotframework/issues/99
-	bin/robot $(opt) src/imio.project.pst/src/imio/project/pst/tests/robot/doc.robot
+	env ZSERVER_HOST=localhost ZSERVER_PORT=55001 bin/robot $(opt) src/imio.project.pst/src/imio/project/pst/tests/robot/doc.robot
 
 .PHONY: cleanall
 cleanall:
