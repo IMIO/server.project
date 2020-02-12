@@ -4,6 +4,7 @@ copy-data.sh
 .coverage
 develop-eggs/
 doc/
+.gitignore
 htmlcov/
 include/
 .installed.cfg
