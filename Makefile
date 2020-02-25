@@ -81,3 +81,8 @@ cleanall:
 various-script:
 	@echo "plone: $(plone)"
 	bin/$(instance) -O$(plone) run run-scripts.py 1
+
+.PHONY: script
+script:
+	@echo "plone: $(plone)"
+	bin/instance1 -O$(plone) run script.py
