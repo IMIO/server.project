@@ -1,5 +1,6 @@
 active
 bin/
+checkversion.html
 copy-data.sh
 .coverage
 develop-eggs/
@@ -23,6 +24,7 @@ port*/
 python-eggs/
 report.html
 .scripts/
+script.py
 send-blobsize.sh
 server.project.sublime-*
 share/

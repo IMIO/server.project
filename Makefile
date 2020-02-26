@@ -86,3 +86,7 @@ various-script:
 script:
 	@echo "plone: $(plone)"
 	bin/instance1 -O$(plone) run script.py
+
+.PHONY: vc
+vc:
+	bin/versioncheck -rbo checkversion.html
