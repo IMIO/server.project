@@ -84,6 +84,7 @@ various-script:
 
 .PHONY: script
 script:
+	# script.py is not committed
 	@echo "plone: $(plone)"
 	bin/instance1 -O$(plone) run script.py
 
