@@ -4,7 +4,7 @@ Changelog
 1.2-2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added external methods to import users from a csv file
 
 
 1.2-1 (2019-06-23)
