@@ -49,7 +49,14 @@ We install the python utility virtualenv
 > /srv/python273/bin/easy_install virtualenv
 
 We can define a cache for buildout
-See http://www.imio.be/support/documentation/tutoriels/utilisation-dun-buildout/definition-dun-cache-pour-buildout/
+> mkdir -p /srv/cache/{eggs,downloads,extends}
+> cd
+> mkdir .buildout
+create the .buildout / default.cfg file and put the following lines in it
+[buildout]
+eggs-directory = /srv/cache/eggs
+download-cache = /srv/cache/downloads
+extends-cache = /srv/cache/extends
 
 We download the buildout files in our folder
 > cd /srv/zinstances
