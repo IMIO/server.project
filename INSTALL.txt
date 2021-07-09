@@ -18,6 +18,13 @@ We install the necessary libraries
 > apt-get install libxml2-dev
 > apt-get install libxslt1-dev
 
+Documentviewer dependencies
+> apt install ruby
+> gem install docsplit
+> apt install graphicsmagick
+> apt install poppler-utils
+> apt install wv
+
 We work in the folder /srv
 > cd /srv
 
