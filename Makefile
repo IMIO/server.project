@@ -58,9 +58,14 @@ ports:
 	@echo "plone: $(plone)"
 	bin/$(instance) -O$(plone) run run-scripts.py 2
 
-.PHONY: coverage
-coverage:
+.PHONY: coveragepst
+coveragepst:
 	bin/coveragepst
+	bin/report
+
+.PHONY: coveragecore
+coveragecore:
+	bin/coveragecore
 	bin/report
 
 .PHONY: robot-server
