@@ -5,6 +5,7 @@ copy-data.sh
 .coverage
 develop-eggs/
 doc/
+*.dat
 htmlcov/
 include/
 .idea
