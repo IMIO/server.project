@@ -25,6 +25,7 @@ Dépendances de documentviewer:
 > apt install graphicsmagick
 > apt install poppler-utils
 > apt install wv
+> apt install ghostscript
 
 On va travailler dans le dossier /srv
 > cd /srv
