@@ -1,11 +1,18 @@
 Changelog
 =========
 
-1.2-2 (unreleased)
+
+2.0 (unreleased)
+------------------
+
+- Setup minimal latest plone 5
+  [fngaha]
+
+1.2-2 (2020-09-29)
 ------------------
 
 - Added external methods to import users from a csv file
-
+  [fngaha]
 
 1.2-1 (2019-06-23)
 ------------------
