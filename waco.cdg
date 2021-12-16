@@ -1,0 +1,26 @@
+[instance1]
+eggs +=
+  pas.plugins.imio
+zcml +=
+  pas.plugins.imio
+
+
+environment-vars +=
+  consumer_key_agents 075d5f89-3e72-4b8f-9ade-5cf3f09ec305
+  consumer_secret_agents 95119246-69c1-4341-b9e9-953383165932
+  authentic_agents_hostname agents.staging.imio.be
+  service_ou 0123456789
+  service_slug imiodemo-iapst
+
+[versions]
+pas.plugins.imio = 1.0.4
+plone.protect = 3.0.26
+plone.app.changeownership = 1.0
+Authomatic = 1.0.0
+pas.plugins.authomatic = 1.0b1
+asn1crypto = 0.24.0
+cryptography = 2.6.1
+ipaddress = 1.0.23
+cffi = 1.11.2
+pycparser = 2.20
+enum34 = 1.1.10
