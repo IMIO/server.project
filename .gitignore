@@ -33,4 +33,4 @@ share/
 src/
 update-admin-password.*
 var/
-
+pyvenv.cfg
