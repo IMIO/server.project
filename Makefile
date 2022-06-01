@@ -91,3 +91,7 @@ script:
 .PHONY: vc
 vc:
 	bin/versioncheck -rbo checkversion.html
+
+.PHONY: install_requests
+install_requests:
+        ./bin/pip install requests
