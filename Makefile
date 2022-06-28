@@ -93,9 +93,15 @@ script:
 	@echo "plone: $(plone)"
 	bin/instance1 -O$(plone) run script.py
 
-.PHONY: vc
-vc:
-	bin/versioncheck -rbo checkversion.html
+.PHONY: vcr
+vcr:  ## Shows requirements in checkversion-r.html
+	# show requirements
+	bin/versioncheck -rbo checkversion-r.html
+
+.PHONY: vcn
+vcn:  ## Shows newer packages in checkversion-n.html
+	# show only newer
+	bin/versioncheck -npbo checkversion-n.html
 
 .PHONY: install_requests
 install_requests:
