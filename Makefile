@@ -18,7 +18,8 @@ bootstrap:
 
 .PHONY: setup
 setup:
-	virtualenv-2.7 .
+	# if command -v python2 >/dev/null && command -v virtualenv; then virtualenv -p python2 . ; elif command -v virtualenv-2.7; then virtualenv-2.7 . ;fi
+	if command -v virtualenv-2.7; then virtualenv-2.7 . ; elif command -v python2 >/dev/null && command -v virtualenv; then virtualenv -p python2 . ; fi
 	./bin/pip install --upgrade pip
 	./bin/pip install -r requirements.txt
 
@@ -58,9 +59,14 @@ ports:
 	@echo "plone: $(plone)"
 	bin/$(instance) -O$(plone) run run-scripts.py 2
 
-.PHONY: coverage
-coverage:
+.PHONY: coveragepst
+coveragepst:
 	bin/coveragepst
+	bin/report
+
+.PHONY: coveragecore
+coveragecore:
+	bin/coveragecore
 	bin/report
 
 .PHONY: robot-server
