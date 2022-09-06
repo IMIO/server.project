@@ -4,6 +4,9 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Upgraded imio.project.pst to differentiated actions from sub-actions in documents by color.
+  Assigned light blue to sub-actions
+  [fngaha]
 - Upgraded imio.project.pst to always specify the type of project elements (OS, OO, A, SA)
   [fngaha]
 - Upgraded imio.project.pst to updated templates by fixing different display conditions
