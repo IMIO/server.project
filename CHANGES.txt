@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Upgraded imio.project.pst to improved progress state template
+  [fngaha]
 - Upgraded imio.project.pst and imio.project.core to Fix locales language in projectspace
   [fngaha]
 - Upgraded imio.project.pst to differentiated actions from sub-actions in documents by color.
