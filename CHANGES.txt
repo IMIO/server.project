@@ -6,6 +6,10 @@ Changelog
 
 - Upgraded imio.project.pst to update columns following pentests corrections
   [fngaha]
+- Upgraded imio.project.pst to improved progress state template
+  [fngaha]
+- Upgraded imio.project.pst and imio.project.core to Fix locales language in projectspace
+  [fngaha]
 - Upgraded imio.project.pst to differentiate actions from sub-actions in documents by color.
   Assigned light blue to sub-actions
   [fngaha]
