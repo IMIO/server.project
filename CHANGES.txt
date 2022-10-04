@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Upgraded imio.project.pst to Fix migration WrongContainedType
+  [fngaha]
 - Upgraded imio.project.pst to Migrate front_page
   [fngaha]
 - Upgraded imio.project.pst to update columns following pentests corrections
