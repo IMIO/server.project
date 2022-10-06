@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Upgraded imio.project.pst to fix dashboard migration
+  [fngaha]
 - Upgraded imio.project.pst to Add a new Users Summary template
   [fngaha]
 - Upgraded imio.project.pst to Fix migration WrongContainedType
