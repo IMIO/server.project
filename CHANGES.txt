@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Upgraded imio.project.pst to fix plan filter by reindexing all projects
+  [fngaha]
 - Upgraded imio.project.pst to fix AttributeError: pst in migration
   [fngaha]
 - Upgraded imio.project.pst to fix dashboard migration
