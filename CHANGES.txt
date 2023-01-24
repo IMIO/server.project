@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Upgraded imio.project.core to change translation of "Extra concerned people" field
+  [fngaha]
 - Upgraded imio.project.core to add a new progress_state_comments field
   [fngaha]
 - Upgraded imio.project.pst to revert the AttributeError fix
