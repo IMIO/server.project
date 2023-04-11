@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Upgraded imio.project.pst to add health indicator and health indicator details colomns in progress state template SUP-29601
+  [fngaha]
 - Upgraded imio.project.pst to revert the AttributeError fix
   [fngaha]
 - Upgraded imio.actionspanel to force by default redirect after transition
