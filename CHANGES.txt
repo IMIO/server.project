@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Install collective.exportimport
+  [fngaha]
 - Enable Restapi
   [fngaha]
 - Upgraded imio.project.core to change translation of "Extra concerned people" field
