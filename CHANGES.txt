@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Uses plone.app.contentlisting in source
+  [fngaha]
 - Install collective.exportimport
   [fngaha]
 - Enable Restapi
