@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Forked plone.app.contentlisting
+  [fngaha]
 - Uses plone.app.contentlisting in source
   [fngaha]
 - Install collective.exportimport
