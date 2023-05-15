@@ -8,6 +8,8 @@ Changelog
   [fngaha]
 - Uses plone.app.contentlisting in source
   [fngaha]
+- Upgraded imio.project.pst to adapted the way to "Colorize project lines" PRJ-484
+  [fngaha]
 - Install collective.exportimport
   [fngaha]
 - Enable Restapi
