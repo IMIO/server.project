@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Adapt the vocabularies of the Mandatory manager, Administrative manager, Manager fields
+  [fngaha]
 - Forked plone.app.contentlisting
   [fngaha]
 - Uses plone.app.contentlisting in source
