@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Upgraded imio.project.pst to Fix AttributeError aq_inner
+  [fngaha]
 - Fix assigned user vocabulary
   [fngaha]
 - Adapt the vocabularies of the Mandatory manager, Administrative manager, Manager fields
