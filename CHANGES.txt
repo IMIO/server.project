@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Upgraded imio.project.pst to fix styles of all services cells from "Titre Sous-Tache" to "Tableau libellé"
+  [fngaha]
 - Upgraded imio.project.core to provide a utility for action type vocabularies
   [fngaha]
 - Upgraded imio.project.pst to fix eComptes export
