@@ -4,6 +4,8 @@ Changelog
 1.3-4 (unreleased)
 ------------------
 
+- Upgraded imio.project.pst to fix styles of all services cells from "Titre Sous-Tache" to "Tableau libellé"
+  [fngaha]
 - Upgraded imio.project.pst to update columns following pentests corrections
   [fngaha]
 - Upgraded imio.project.pst to improved progress state template
