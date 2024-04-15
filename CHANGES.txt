@@ -6,6 +6,50 @@ Changelog
 
 - Upgraded imio.project.pst to fix styles of all services cells from "Titre Sous-Tache" to "Tableau libellé"
   [fngaha]
+- Upgraded imio.project.core to provide a utility for action type vocabularies
+  [fngaha]
+- Upgraded imio.project.pst to fix eComptes export
+  [fngaha]
+- Upgraded imio.project.pst to Fix AttributeError aq_inner
+  [fngaha]
+- Fix assigned user vocabulary
+  [fngaha]
+- Adapt the vocabularies of the Mandatory manager, Administrative manager, Manager fields
+  [fngaha]
+- Forked plone.app.contentlisting
+  [fngaha]
+- Uses plone.app.contentlisting in source
+  [fngaha]
+- Upgraded imio.project.pst to adapted the way to "Colorize project lines" PRJ-484
+  [fngaha]
+- Install collective.exportimport
+  [fngaha]
+- Enable Restapi
+  [fngaha]
+- Upgraded imio.project.core to change translation of "Extra concerned people" field
+  [fngaha]
+- Upgraded imio.project.core to add a new progress_state_comments field
+  [fngaha]
+- Upgraded imio.project.pst to add health indicator and health indicator details colomns in progress state template SUP-29601
+  [fngaha]
+- Upgraded imio.project.pst to revert the AttributeError fix
+  [fngaha]
+- Upgraded imio.actionspanel to force by default redirect after transition
+  [fngaha]
+- Upgraded imio.project.pst to fix AttributeError: aq_inner
+  [fngaha]
+- Upgraded imio.project.pst to fix plan filter by reindexing all projects
+  [fngaha]
+- Upgraded imio.project.pst to fix AttributeError: pst in migration
+  [fngaha]
+- Upgraded imio.project.pst to fix dashboard migration
+  [fngaha]
+- Upgraded imio.project.pst to Add a new Users Summary template
+  [fngaha]
+- Upgraded imio.project.pst to Fix migration WrongContainedType
+  [fngaha]
+- Upgraded imio.project.pst to Migrate front_page
+  [fngaha]
 - Upgraded imio.project.pst to update columns following pentests corrections
   [fngaha]
 - Upgraded imio.project.pst to improved progress state template
